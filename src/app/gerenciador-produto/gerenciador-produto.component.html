@@ -8,7 +8,6 @@
       <button class="btn btn-deletar" (click)="deletarProduto()" id="deletar-produto" mat-button>Deletar Produto</button>
     </div>
 
-    <!-- Campo para ID (somente para atualizar ou deletar) -->
     <div class="input-id">
       <mat-form-field appearance="outline">
         <mat-label>ID (somente para Atualizar ou Deletar)</mat-label>
@@ -17,7 +16,6 @@
       <small style="color: #ff0000; font-size: 12px;">Este campo deve ser preenchido apenas para Atualização ou Deleção de produto.</small>
     </div>
 
-    <!-- Outros campos do produto -->
     <div class="input-codigo">
       <mat-form-field appearance="outline">
         <mat-label>Código</mat-label>
@@ -80,7 +78,6 @@
     </div>
   </form>
 
-  <!-- Exibição dos produtos -->
   <div class="cards" *ngIf="produtos.length > 0; else noData">
     <mat-card class="card-produto" *ngFor="let produto of produtos">
       <mat-card-header>

@@ -19,7 +19,7 @@ export class GerenciadorProdutoComponent implements OnInit {
 
   ngOnInit(): void {
     this.produtoForm = new FormGroup({
-      idProduto: new FormControl(''),  // Adiciona o controle de ID
+      idProduto: new FormControl(''), 
       codigoProduto: new FormControl(''),
       descricaoProduto: new FormControl(''),
       precoProduto: new FormControl(''),
@@ -33,7 +33,6 @@ export class GerenciadorProdutoComponent implements OnInit {
     });
   }
 
-  // Função para buscar todos os produtos
   getProdutos() {
     this.gerenciadorProdutoService.getProdutos().subscribe(
       (data) => {
@@ -46,7 +45,6 @@ export class GerenciadorProdutoComponent implements OnInit {
     );
   }
 
-  // Função para criar um produto
   criarProduto() {
     const produto = this.produtoForm.value;
     const novoProduto = {
@@ -76,9 +74,8 @@ export class GerenciadorProdutoComponent implements OnInit {
     );
   }
 
-  // Função para atualizar o produto
   atualizarProduto() {
-    const id = this.produtoForm.get('idProduto')?.value; // Pega o ID do produto
+    const id = this.produtoForm.get('idProduto')?.value;
     if (!id) {
       this.openSnackBar('ID é necessário para atualização!');
       return;
@@ -112,10 +109,9 @@ export class GerenciadorProdutoComponent implements OnInit {
     );
   }
 
-  // Função para deletar o produto
   deletarProduto() {
     const id = this.produtoForm.get('idProduto')?.value;
-    console.log("Deletando produto com ID: ", id); // Verifique se o ID está correto
+    console.log("Deletando produto com ID: ", id);
 
     if (!id) {
       this.openSnackBar('ID é necessário para deleção!');
@@ -134,7 +130,6 @@ export class GerenciadorProdutoComponent implements OnInit {
     );
   }
 
-  // Função para mostrar o Snackbar com a mensagem
   openSnackBar(message: string) {
     this.snackBar.open(message, 'Fechar', {
       duration: 3000,
