@@ -1,0 +1,130 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.botoes-acoes {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.btn {
+  background-color: purple;
+  font-size: 1.3rem;
+  color: white;
+  border-radius: 8px;
+  padding: 12px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: darkviolet;
+  cursor: pointer;
+}
+
+.btn-puxar, .btn-criar, .btn-atualizar, .btn-deletar {
+  flex: 1;
+  min-width: 180px;
+}
+
+.input-id, .input-descricao, .input-preco, .input-qtd-estoque, .input-referencia, .input-status, .input-promocao, .input-grupo-categoria, .input-imagem-topo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.mat-form-field {
+  width: 100%; 
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.card-produto {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+  width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  mat-card-header {
+    background-color: #f5f5f5;
+    border-radius: 10px 10px 0 0;
+    padding: 12px;
+  }
+
+  mat-card-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  mat-card-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 5px;
+  }
+
+  mat-card-content {
+    font-size: 1rem;
+    color: #444;
+    margin: 12px 0;
+  }
+
+  img.produto-img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    max-height: 200px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    background-color: #e3f2fd;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 5px 0;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #bbdefb;
+    }
+  }
+}
+
+.input-status, .input-promocao, .input-destaque {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

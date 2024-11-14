@@ -1,0 +1,117 @@
+<div class="container">
+  <form [formGroup]="produtoForm" class="form-container">
+
+    <div class="botoes-acoes">
+      <button class="btn btn-puxar" (click)="getProdutos()" id="puxar-produtos" mat-button>Puxar Produtos</button>
+      <button class="btn btn-criar" (click)="criarProduto()" id="criar-produto" mat-button>Criar Produto</button>
+      <button class="btn btn-atualizar" (click)="atualizarProduto()" id="atualizar-produto" mat-button>Atualizar Produto</button>
+      <button class="btn btn-deletar" (click)="deletarProduto()" id="deletar-produto" mat-button>Deletar Produto</button>
+    </div>
+
+    <!-- Campo para ID (somente para atualizar ou deletar) -->
+    <div class="input-id">
+      <mat-form-field appearance="outline">
+        <mat-label>ID (somente para Atualizar ou Deletar)</mat-label>
+        <input class="id-input" formControlName="idProduto" matInput type="number" placeholder="Insira o ID do Produto (para atualização ou exclusão)">
+      </mat-form-field>
+      <small style="color: #ff0000; font-size: 12px;">Este campo deve ser preenchido apenas para Atualização ou Deleção de produto.</small>
+    </div>
+
+    <!-- Outros campos do produto -->
+    <div class="input-codigo">
+      <mat-form-field appearance="outline">
+        <mat-label>Código</mat-label>
+        <input class="codigo-input" formControlName="codigoProduto" matInput type="text" placeholder="Insira o Código do Produto">
+      </mat-form-field>
+    </div>
+
+    <div class="input-descricao">
+      <mat-form-field appearance="outline">
+        <mat-label>Descrição</mat-label>
+        <input matInput type="text" formControlName="descricaoProduto" placeholder="Insira a Descrição do Produto">
+      </mat-form-field>
+    </div>
+
+    <div class="input-preco">
+      <mat-form-field appearance="outline">
+        <mat-label>Preço</mat-label>
+        <input matInput type="number" formControlName="precoProduto" placeholder="Insira o Preço do Produto">
+      </mat-form-field>
+    </div>
+
+    <div class="input-qtd-estoque">
+      <mat-form-field appearance="outline">
+        <mat-label>Quantidade em Estoque</mat-label>
+        <input matInput type="number" formControlName="qtdEstoqueProduto" placeholder="Insira a Quantidade em Estoque">
+      </mat-form-field>
+    </div>
+
+    <div class="input-status">
+      <mat-checkbox formControlName="statusProduto">Produto Ativo</mat-checkbox>
+    </div>
+
+    <div class="input-promocao">
+      <mat-checkbox formControlName="promocaoProduto">Em Promoção</mat-checkbox>
+    </div>
+
+    <div class="input-referencia">
+      <mat-form-field appearance="outline">
+        <mat-label>Referência</mat-label>
+        <input matInput type="text" formControlName="referenciaProduto" placeholder="Insira a Referência do Produto">
+      </mat-form-field>
+    </div>
+
+    <div class="input-destaque">
+      <mat-checkbox formControlName="destaqueProduto">Destaque</mat-checkbox>
+    </div>
+
+    <div class="input-imagem-topo">
+      <mat-form-field appearance="outline">
+        <mat-label>Imagem do Produto (Topo)</mat-label>
+        <input matInput type="url" formControlName="imgTopoProduto" placeholder="Insira a URL da Imagem do Produto">
+      </mat-form-field>
+    </div>
+
+    <div class="input-grupo-categoria">
+      <mat-form-field appearance="outline">
+        <mat-label>Grupo/Categoria</mat-label>
+        <input matInput type="text" formControlName="grupoCategoriaProduto" placeholder="Insira o Grupo/Categoria do Produto">
+      </mat-form-field>
+    </div>
+  </form>
+
+  <!-- Exibição dos produtos -->
+  <div class="cards" *ngIf="produtos.length > 0; else noData">
+    <mat-card class="card-produto" *ngFor="let produto of produtos">
+      <mat-card-header>
+        <mat-card-title>{{ produto.titulo }}</mat-card-title>
+        <mat-card-subtitle>Referência: {{ produto.referencia }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        Código: {{ produto.codigo }}
+      </mat-card-content>
+      <mat-card-content>
+        Descrição: {{ produto.descricao }}
+      </mat-card-content>
+      <mat-card-content>
+        Preço: {{ produto.valor | currency }}
+      </mat-card-content>
+      <mat-card-content>
+        Status: {{ produto.status ? 'Ativo' : 'Inativo' }}
+      </mat-card-content>
+      <mat-card-content>
+        Promoção: {{ produto.promocao ? 'Sim' : 'Não' }}
+      </mat-card-content>
+      <mat-card-content>
+        Quantidade em Estoque: {{ produto.qtdEstoque }}
+      </mat-card-content>
+      <mat-card-content *ngIf="produto.imgTopo?.length > 0">
+        <img [src]="produto.imgTopo[0]" class="produto-img" alt="Imagem do Produto">
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <ng-template #noData>
+    <p>Nenhum dado disponível.</p>
+  </ng-template>
+</div>

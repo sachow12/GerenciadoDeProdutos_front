@@ -1,0 +1,20 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.login-card {
+  width: 400px;
+}
+
+.register-link {
+  text-align: center;
+  font-size: 14px;
+  a {
+    text-decoration: none;
+    color: #1976d2;
+  }
+}
